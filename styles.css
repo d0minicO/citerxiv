@@ -1,9 +1,11 @@
 /* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Outfit', sans-serif;
   background: #fff;
   color: #333;
 }
@@ -17,12 +19,20 @@ html, body {
   padding: 1rem;
 }
 
-h1 {
+.main-title {
   font-size: 3rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
   background: linear-gradient(90deg,#007bff,#00d4ff);
   -webkit-background-clip: text;
   color: transparent;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  color: #111;
+  margin-bottom: 2rem;
+  text-align: center;
+  max-width: 500px;
 }
 
 form {
@@ -33,13 +43,20 @@ form {
 }
 
 input[type="text"],
-textarea {
+textarea,
+button {
   width: 100%;
+  box-sizing: border-box;
+}
+
+input[type="text"],
+textarea {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
   padding: 0.75rem 1rem;
   margin-bottom: 1rem;
   border: 1px solid #ddd;
   border-radius: 0.5rem;
-  font-size: 1rem;
   transition: border-color 0.3s ease;
 }
 
@@ -52,12 +69,14 @@ textarea:focus {
 button {
   padding: 0.75rem 1rem;
   font-size: 1rem;
+  font-family: 'Outfit', sans-serif;
   border: none;
   border-radius: 0.5rem;
   background: linear-gradient(90deg,#007bff,#00d4ff);
   color: #fff;
   cursor: pointer;
   transition: transform 0.2s ease, opacity 0.2s ease;
+  margin-top: 0.5rem;
 }
 
 button:hover {
