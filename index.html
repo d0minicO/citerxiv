@@ -41,6 +41,10 @@
         <h2>Seminal Chance</h2>
         <p id="seminalValue"></p>
       </div>
+      <div class="card">
+        <h2>Journal Suggestion</h2>
+        <p id="journalValue"></p>
+      </div>
     </div>
   </div>
 
@@ -49,29 +53,74 @@
     const spinner = document.getElementById("spinner");
     const results = document.getElementById("results");
 
+    const biomedjournals = [
+      "Nature","Science","Cell","The Lancet","The New England Journal of Medicine",
+      "JAMA (Journal of the American Medical Association)","Nature Medicine","Nature Genetics",
+      "Nature Biotechnology","Cell Metabolism","Nature Neuroscience",
+      "PNAS (Proceedings of the National Academy of Sciences)","Nature Communications",
+      "The BMJ (British Medical Journal)","Science Translational Medicine",
+      "Nature Reviews Molecular Cell Biology","EMBO Journal","Cancer Cell",
+      "Cell Stem Cell","Nature Methods","Molecular Cell","Genome Biology",
+      "PLoS Biology","Journal of Clinical Investigation","Nature Immunology",
+      "Blood","eLife","Scientific Reports","mBio","EMBO Molecular Medicine",
+      "The Plant Cell","Current Biology","Journal of Biological Chemistry",
+      "Development","Nucleic Acids Research","MDPI Sustainability",
+      "Journal of Cellular Physiology","Journal of Virology",
+      "MDPI International Journal of Molecular Sciences","Journal of Experimental Biology",
+      "BMC Biology","MDPI Cells","Journal of Proteome Research",
+      "Plant Physiology","MDPI Plants","Frontiers in Microbiology","PeerJ",
+      "MDPI Biology","Journal of Biosciences","F1000Research"
+    ];
+
+    // Define physics/CS journals
+    const physicsjournals = [
+        "Physical Review Letters", "Nature Physics", "Reviews of Modern Physics", 
+        "IEEE Transactions on Pattern Analysis and Machine Intelligence", "Journal of High Energy Physics", 
+        "ACM Computing Surveys", "Journal of Machine Learning Research", "Physical Review X", 
+        "Communications of the ACM", "IEEE Transactions on Neural Networks and Learning Systems", 
+        "Nature Computational Science", "Scientific Data", "Physical Review D", 
+        "IEEE Transactions on Information Theory", "Journal of Statistical Mechanics", 
+        "Quantum", "IEEE Transactions on Image Processing", "Journal of Computational Physics", 
+        "Computer Vision and Image Understanding", "Physics Reports", 
+        "Journal of Chemical Physics", "Applied Physics Letters", "IEEE/ACM Transactions on Networking", 
+        "Quantum Information Processing", "Physical Review Applied", 
+        "ACM Transactions on Graphics", "Journal of Applied Physics", "New Journal of Physics", 
+        "IEEE Journal on Selected Areas in Communications", "Physical Review B", 
+        "Journal of Statistical Physics", "Computer Methods in Applied Mechanics and Engineering", 
+        "Neural Computation", "Journal of Fluid Mechanics", "European Physical Journal C", 
+        "Artificial Intelligence", "Journal of Cosmology and Astroparticle Physics", 
+        "IEEE Transactions on Software Engineering", "Computational Linguistics", 
+        "IEEE Robotics and Automation Letters", "Journal of Physics D: Applied Physics", 
+        "Information Systems Research", "Journal of Optics", "Journal of Computational Chemistry", 
+        "Optics Express", "IEEE Transactions on Parallel and Distributed Systems", 
+        "MDPI Algorithms", "Journal of Physics: Condensed Matter", "ACM Transactions on Computer Systems", 
+        "Physica A: Statistical Mechanics and its Applications"
+    ];
+
+    // Combine the two arrays
+    const journals = [...biomedjournals, ...physicsjournals];
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       results.classList.add("hidden");
       spinner.classList.remove("hidden");
 
-      const delay = Math.floor(Math.random() * 5 + 1) * 1000;
-
+      const delay = Math.floor(Math.random() * 5 + 1) * 333;
       setTimeout(() => {
         const citations = Math.floor(Math.random() * 501);
         const impact = Math.floor(Math.random() * 50) + 1;
         const seminal = Math.floor(Math.random() * 101);
+        const journal = journals[Math.floor(Math.random() * journals.length)];
 
         document.getElementById("citationsValue").textContent = citations;
         document.getElementById("impactValue").textContent = impact;
         document.getElementById("seminalValue").textContent = `${seminal}%`;
+        document.getElementById("journalValue").textContent = journal;
 
         spinner.classList.add("hidden");
         results.classList.remove("hidden");
       }, delay);
     });
   </script>
-  <footer class="footer">
-    © Dominic Owens, 2025
-  </footer>
 </body>
 </html>
