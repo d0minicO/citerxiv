@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Citerxiv – Predict Your Research Impact</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Citerxiv</h1>
+    <form id="predictForm">
+      <input type="text" id="title" placeholder="Paper Title" required />
+      <textarea id="abstract" maxlength="250" placeholder="Abstract (max 250 words)" required></textarea>
+      <button type="submit">Predict</button>
+    </form>
+
+    <div id="results" class="results hidden">
+      <div class="card">
+        <h2>Total Citations</h2>
+        <p id="citationsValue"></p>
+      </div>
+      <div class="card">
+        <h2>Impact Factor</h2>
+        <p id="impactValue"></p>
+      </div>
+      <div class="card">
+        <h2>Seminal Chance</h2>
+        <p id="seminalValue"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("predictForm");
+    const results = document.getElementById("results");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const citations = Math.floor(Math.random() * 501);
+      const impact = Math.floor(Math.random() * 50) + 1;
+      const seminal = Math.floor(Math.random() * 101);
+
+      document.getElementById("citationsValue").textContent = citations;
+      document.getElementById("impactValue").textContent = impact;
+      document.getElementById("seminalValue").textContent = `${seminal}%`;
+
+      results.classList.remove("hidden");
+    });
+  </script>
+</body>
+</html>
